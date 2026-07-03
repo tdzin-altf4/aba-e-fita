@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aba & Fita — Chapelaria Artesanal</title>
+<meta name="description" content="Aba & Fita — chapéus de feltro moldados à mão, sob medida para cada cabeça.">
+<style>
+  :root{
+    --felt:#4A3B2A;
+    --felt-deep:#2E241A;
+    --tan:#C9A05C;
+    --tan-deep:#9C7838;
+    --cream:#F5EEDF;
+    --cream-2:#EBDFC4;
+    --ink-soft:#6B5F4C;
+    --line:#DECBA0;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--cream); color:var(--felt-deep); font-family:Georgia,'Iowan Old Style',serif; line-height:1.65;}
+  a{color:inherit; text-decoration:none;}
+  .wrap{max-width:1100px; margin:0 auto; padding:0 36px;}
+  .sans{font-family:'Segoe UI',-apple-system,Helvetica,Arial,sans-serif;}
+
+  nav{position:sticky; top:0; z-index:50; background:rgba(245,238,223,0.92); backdrop-filter:blur(8px); border-bottom:1px solid var(--line);}
+  .nav-row{display:flex; justify-content:space-between; align-items:center; padding:22px 36px;}
+  .brand{font-size:21px; letter-spacing:0.3px; display:flex; align-items:center; gap:10px;}
+  .brand .band{width:16px; height:4px; background:var(--tan); border-radius:2px;}
+  .brand span{color:var(--tan-deep);}
+  .nav-links{display:flex; gap:32px; font-family:'Segoe UI',sans-serif;}
+  .nav-links a{font-size:12.5px; letter-spacing:1px; text-transform:uppercase; color:var(--ink-soft);}
+  .nav-links a:hover{color:var(--felt);}
+  .menu-toggle{display:none; background:none; border:none; font-size:22px; cursor:pointer; color:var(--felt-deep);}
+
+  /* HERO — chapéu cumprimentando (tip) */
+  .hero{padding:60px 0 0; position:relative; overflow:hidden;}
+  .hero-grid{display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px; align-items:center;}
+  .eyebrow{font-family:'Segoe UI',sans-serif; font-size:12.5px; letter-spacing:2px; text-transform:uppercase; color:var(--tan-deep); margin-bottom:22px;}
+  h1{font-weight:400; font-size:46px; line-height:1.18; margin-bottom:24px;}
+  h1 em{font-style:italic; color:var(--tan-deep);}
+  .hero p{font-size:16.5px; color:var(--ink-soft); max-width:440px; margin-bottom:32px;}
+  .btn{font-family:'Segoe UI',sans-serif; font-size:12.5px; letter-spacing:1px; text-transform:uppercase; padding:15px 28px; display:inline-block; transition:all .25s ease;}
+  .btn-solid{background:var(--felt-deep); color:var(--cream);}
+  .btn-solid:hover{background:var(--felt);}
+  .btn-line{border:1px solid var(--felt-deep); color:var(--felt-deep); margin-left:12px;}
+  .btn-line:hover{background:var(--felt-deep); color:var(--cream);}
+
+  .hat-stage{position:relative; display:flex; justify-content:center;}
+  .hat-photo{width:100%; aspect-ratio:4/3; overflow:hidden; border-radius:8px; box-shadow:0 25px 50px rgba(46,36,26,0.25);}
+  .hat-photo img{width:100%; height:100%; object-fit:cover; display:block;}
+  .hat-icon{
+    position:absolute; top:-26px; right:8%; width:74px; height:74px;
+    transform-origin:50% 80%;
+    animation:hat-tip 4s ease-in-out infinite;
+  }
+  .hat-icon svg{width:100%; height:100%;}
+  @keyframes hat-tip{
+    0%,65%{ transform:rotate(0deg) translateY(0); }
+    78%{ transform:rotate(-22deg) translateY(-8px); }
+    90%{ transform:rotate(4deg) translateY(0); }
+    100%{ transform:rotate(0deg) translateY(0); }
+  }
+
+  section{padding:90px 0;}
+  .section-head{max-width:560px; margin:0 auto 52px; text-align:center;}
+  .section-head .eyebrow{margin-bottom:16px;}
+  h2{font-weight:400; font-size:34px;}
+  h2 em{font-style:italic; color:var(--tan-deep);}
+  .section-head p{color:var(--ink-soft); font-size:15px; margin-top:14px; font-family:'Segoe UI',sans-serif;}
+
+  /* MODELOS */
+  .models{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line);}
+  .model{background:var(--cream);}
+  .model .m-photo{aspect-ratio:1/1; overflow:hidden;}
+  .model .m-photo img{width:100%; height:100%; object-fit:cover; display:block; transition:transform .4s ease;}
+  .model:hover .m-photo img{transform:scale(1.06);}
+  .model .m-info{padding:20px 20px 24px;}
+  .model h3{font-size:17px; margin-bottom:6px;}
+  .model .price{font-family:'Segoe UI',sans-serif; font-size:14px; color:var(--tan-deep);}
+
+  /* PROCESSO */
+  .process{background:var(--felt-deep); color:var(--cream);}
+  .proc-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:rgba(245,238,223,0.14);}
+  .proc-step{padding:0 26px 0 0;}
+  .proc-step .num{font-family:'Segoe UI',sans-serif; font-size:12px; color:var(--tan); margin-bottom:16px;}
+  .proc-step h3{font-size:18px; margin-bottom:10px;}
+  .proc-step p{font-size:13.5px; color:#D8CBA8; font-family:'Segoe UI',sans-serif;}
+
+  .contact-inner{display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:center;}
+  .info-row{padding:16px 0; border-bottom:1px solid var(--line); font-size:15px; font-family:'Segoe UI',sans-serif;}
+  .info-row span{display:block; font-size:11px; letter-spacing:1px; text-transform:uppercase; color:var(--ink-soft); margin-bottom:5px;}
+
+  footer{border-top:1px solid var(--line); padding:34px 0; font-family:'Segoe UI',sans-serif;}
+  .foot-row{display:flex; justify-content:space-between; flex-wrap:wrap; gap:14px; font-size:13px; color:var(--ink-soft);}
+
+  .reveal{ opacity:0; transform:translateY(26px); transition:opacity .7s ease, transform .7s ease; }
+  .reveal.in-view{ opacity:1; transform:translateY(0); }
+
+  @media (prefers-reduced-motion: reduce){
+    .hat-icon{ animation:none; }
+    .reveal{ opacity:1 !important; transform:none !important; transition:none; }
+  }
+
+  @media(max-width:900px){
+    .nav-links{
+      display:none; position:fixed; top:66px; left:0; right:0; z-index:60;
+      flex-direction:column; align-items:center; gap:20px;
+      background:var(--cream); border-bottom:1px solid var(--line); padding:26px 0;
+    }
+    .nav-links.open{display:flex;}
+    .menu-toggle{display:block;}
+    .hero-grid{grid-template-columns:1fr;}
+    h1{font-size:32px;}
+    .models{grid-template-columns:1fr 1fr;}
+    .proc-grid{grid-template-columns:1fr 1fr; gap:30px;}
+    .contact-inner{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-row wrap" style="padding-left:0; padding-right:0;">
+    <div class="brand"><span class="band"></span>Aba & Fita</div>
+    <div class="nav-links" id="navLinks">
+      <a href="#modelos">Modelos</a>
+      <a href="#processo">Processo</a>
+      <a href="#contato">Visitar</a>
+    </div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<header class="hero wrap">
+  <div class="hero-grid">
+    <div>
+      <div class="eyebrow">Chapelaria de feltro sob medida</div>
+      <h1>Chapéu que se molda<br>à sua <em>cabeça</em>, não ao contrário.</h1>
+      <p>Moldamos cada chapéu no vapor, sobre forma de madeira na medida exata da sua cabeça — sem tamanho único.</p>
+      <a href="#modelos" class="btn btn-solid">Ver modelos</a>
+      <a href="#contato" class="btn btn-line">Agendar medição</a>
+    </div>
+    <div class="hat-stage">
+      <div class="hat-photo">
+        <img src="https://images.pexels.com/photos/935997/pexels-photo-935997.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Chapeleiro moldando chapéu de feltro no vapor">
+      </div>
+      <div class="hat-icon">
+        <svg viewBox="0 0 100 100">
+          <ellipse cx="50" cy="72" rx="46" ry="9" fill="var(--felt-deep)"/>
+          <path d="M28,72 Q28,30 50,28 Q72,30 72,72 Z" fill="var(--felt)"/>
+          <rect x="28" y="58" width="44" height="8" fill="var(--tan)"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="modelos" class="wrap">
+  <div class="section-head reveal">
+    <div class="eyebrow">Da chapelaria</div>
+    <h2>Quatro modelos, <em>uma só forma</em></h2>
+    <p>Cada chapéu é feito sob medida — os modelos abaixo são referência de estilo.</p>
+  </div>
+  <div class="models">
+    <div class="model reveal">
+      <div class="m-photo"><img src="https://images.pexels.com/photos/38138842/pexels-photo-38138842.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Chapéu de feltro clássico"></div>
+      <div class="m-info">
+        <h3>Fedora Clássico</h3>
+        <div class="price">R$ 680</div>
+      </div>
+    </div>
+    <div class="model reveal" style="transition-delay:.06s">
+      <div class="m-photo"><img src="https://images.pexels.com/photos/2832037/pexels-photo-2832037.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Chapéu de aba larga"></div>
+      <div class="m-info">
+        <h3>Aba Larga</h3>
+        <div class="price">R$ 720</div>
+      </div>
+    </div>
+    <div class="model reveal" style="transition-delay:.12s">
+      <div class="m-photo"><img src="https://images.pexels.com/photos/33065878/pexels-photo-33065878.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Chapéu estilo panamá"></div>
+      <div class="m-info">
+        <h3>Panamá de Palha</h3>
+        <div class="price">R$ 540</div>
+      </div>
+    </div>
+    <div class="model reveal" style="transition-delay:.18s">
+      <div class="m-photo"><img src="https://images.pexels.com/photos/4471279/pexels-photo-4471279.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Chapéu artesanal em exposição"></div>
+      <div class="m-info">
+        <h3>Sob Medida</h3>
+        <div class="price">Consulta</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="process">
+  <div class="wrap" style="padding:80px 0;">
+    <div class="section-head reveal" style="margin-bottom:56px;">
+      <div class="eyebrow" style="color:var(--tan);">Como moldamos</div>
+      <h2 style="color:var(--cream);">Do feltro <em style="color:var(--tan);">à forma final</em></h2>
+    </div>
+    <div class="proc-grid">
+      <div class="proc-step reveal"><div class="num">01</div><h3>Medição</h3><p>Sua cabeça é medida em pontos-chave para escolher a forma certa.</p></div>
+      <div class="proc-step reveal" style="transition-delay:.06s"><div class="num">02</div><h3>Vaporização</h3><p>Feltro amolecido no vapor até ficar maleável para moldar.</p></div>
+      <div class="proc-step reveal" style="transition-delay:.12s"><div class="num">03</div><h3>Moldagem</h3><p>Esticado sobre forma de madeira na medida exata da sua cabeça.</p></div>
+      <div class="proc-step reveal" style="transition-delay:.18s"><div class="num">04</div><h3>Acabamento</h3><p>Corte da aba, fita e forro costurados à mão.</p></div>
+    </div>
+  </div>
+</div>
+
+<section id="contato" class="wrap">
+  <div class="contact-inner">
+    <div>
+      <div class="section-head reveal" style="text-align:left; margin-bottom:24px;">
+        <div class="eyebrow">Visite a chapelaria</div>
+        <h2>Aberto de <em>terça a sábado</em></h2>
+      </div>
+      <a href="#" class="btn btn-solid">Chamar no WhatsApp</a>
+    </div>
+    <div>
+      <div class="info-row"><span>Endereço</span>Rua dos Chapeleiros, 40 — Centro</div>
+      <div class="info-row"><span>Horário</span>Terça a sábado, 10h às 18h</div>
+      <div class="info-row"><span>Telefone</span>(21) 99111-5544</div>
+      <div class="info-row"><span>E-mail</span>contato@abaefita.com.br</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-row">
+    <div>© 2026 Aba & Fita — Chapelaria Artesanal</div>
+    <div>MOLDADO SOB MEDIDA, SEMPRE</div>
+  </div>
+</footer>
+
+<script>
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  menuToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => navLinks.classList.remove('open'));
+  });
+
+  const revealTargets = document.querySelectorAll('.reveal');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduceMotion || !('IntersectionObserver' in window)) {
+    revealTargets.forEach(el => el.classList.add('in-view'));
+  } else {
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    revealTargets.forEach(el => revealObserver.observe(el));
+  }
+</script>
+
+</body>
+</html>
