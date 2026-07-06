@@ -5,6 +5,39 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Aba & Fita — Chapelaria Artesanal</title>
 <meta name="description" content="Aba & Fita — chapéus de feltro moldados à mão, sob medida para cada cabeça.">
+<link rel="canonical" href="https://tdzin-altf4.github.io/aba-e-fita/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23F5EEDF'/%3E%3Cellipse cx='16' cy='23' rx='11' ry='2.5' fill='%232E241A'/%3E%3Cpath d='M8,23 Q8,10 16,9 Q24,10 24,23 Z' fill='%234A3B2A'/%3E%3Crect x='8' y='17' width='16' height='2.5' fill='%23C9A05C'/%3E%3C/svg%3E">
+
+<meta property="og:title" content="Aba & Fita — Chapelaria Artesanal">
+<meta property="og:description" content="Chapéus de feltro moldados à mão, sob medida para cada cabeça.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tdzin-altf4.github.io/aba-e-fita/">
+<meta property="og:image" content="https://images.pexels.com/photos/935997/pexels-photo-935997.jpeg?auto=compress&cs=tinysrgb&w=800">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Aba & Fita — Chapelaria Artesanal">
+<meta name="twitter:description" content="Chapéus de feltro moldados à mão, sob medida para cada cabeça.">
+<meta name="twitter:image" content="https://images.pexels.com/photos/935997/pexels-photo-935997.jpeg?auto=compress&cs=tinysrgb&w=800">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Aba & Fita",
+  "description": "Chapelaria artesanal de chapéus de feltro moldados sob medida.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Rua dos Chapeleiros, 40 — Centro"
+  },
+  "telephone": "+5521991115544",
+  "email": "contato@abaefita.com.br",
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+    "opens": "10:00",
+    "closes": "18:00"
+  }
+}
+</script>
 <style>
   :root{
     --felt:#4A3B2A;
@@ -20,6 +53,11 @@
   html{scroll-behavior:smooth;}
   body{background:var(--cream); color:var(--felt-deep); font-family:Georgia,'Iowan Old Style',serif; line-height:1.65;}
   a{color:inherit; text-decoration:none;}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--tan-deep); outline-offset:3px; border-radius:2px;}
+
+  .skip-link{position:absolute; left:-999px; top:auto; background:var(--felt-deep); color:var(--cream); padding:12px 20px; z-index:100; font-size:13px;}
+  .skip-link:focus{left:16px; top:16px;}
+
   .wrap{max-width:1100px; margin:0 auto; padding:0 36px;}
   .sans{font-family:'Segoe UI',-apple-system,Helvetica,Arial,sans-serif;}
 
@@ -98,8 +136,11 @@
   .reveal.in-view{ opacity:1; transform:translateY(0); }
 
   @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
     .hat-icon{ animation:none; }
     .reveal{ opacity:1 !important; transform:none !important; transition:none; }
+    .model .m-photo img{ transition:none; }
+    .model:hover .m-photo img{ transform:none; }
   }
 
   @media(max-width:900px){
@@ -116,9 +157,18 @@
     .proc-grid{grid-template-columns:1fr 1fr; gap:30px;}
     .contact-inner{grid-template-columns:1fr;}
   }
+
+  @media(max-width:380px){
+    .wrap{padding:0 20px;}
+    h1{font-size:27px;}
+    h2{font-size:26px;}
+    .models{grid-template-columns:1fr;}
+  }
 </style>
 </head>
 <body>
+
+<a href="#conteudo" class="skip-link">Pular para o conteúdo</a>
 
 <nav>
   <div class="nav-row wrap" style="padding-left:0; padding-right:0;">
@@ -128,13 +178,13 @@
       <a href="#processo">Processo</a>
       <a href="#contato">Visitar</a>
     </div>
-    <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
       <span></span><span></span><span></span>
     </button>
   </div>
 </nav>
 
-<header class="hero wrap">
+<header class="hero wrap" id="conteudo">
   <div class="hero-grid">
     <div>
       <div class="eyebrow">Chapelaria de feltro sob medida</div>
@@ -145,7 +195,7 @@
     </div>
     <div class="hat-stage">
       <div class="hat-photo">
-        <img src="https://images.pexels.com/photos/935997/pexels-photo-935997.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Chapeleiro moldando chapéu de feltro no vapor">
+        <img src="https://images.pexels.com/photos/935997/pexels-photo-935997.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Chapeleiro moldando chapéu de feltro no vapor" width="800" height="600" fetchpriority="high">
       </div>
       <div class="hat-icon">
         <svg viewBox="0 0 100 100">
@@ -166,28 +216,28 @@
   </div>
   <div class="models">
     <div class="model reveal">
-      <div class="m-photo"><img src="https://images.pexels.com/photos/38138842/pexels-photo-38138842.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Chapéu de feltro clássico"></div>
+      <div class="m-photo"><img src="https://images.pexels.com/photos/38138842/pexels-photo-38138842.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Chapéu de feltro clássico" width="400" height="400" loading="lazy"></div>
       <div class="m-info">
         <h3>Fedora Clássico</h3>
         <div class="price">R$ 680</div>
       </div>
     </div>
     <div class="model reveal" style="transition-delay:.06s">
-      <div class="m-photo"><img src="https://images.pexels.com/photos/2832037/pexels-photo-2832037.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Chapéu de aba larga"></div>
+      <div class="m-photo"><img src="https://images.pexels.com/photos/2832037/pexels-photo-2832037.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Chapéu de aba larga" width="400" height="400" loading="lazy"></div>
       <div class="m-info">
         <h3>Aba Larga</h3>
         <div class="price">R$ 720</div>
       </div>
     </div>
     <div class="model reveal" style="transition-delay:.12s">
-      <div class="m-photo"><img src="https://images.pexels.com/photos/33065878/pexels-photo-33065878.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Chapéu estilo panamá"></div>
+      <div class="m-photo"><img src="https://images.pexels.com/photos/33065878/pexels-photo-33065878.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Chapéu estilo panamá" width="400" height="400" loading="lazy"></div>
       <div class="m-info">
         <h3>Panamá de Palha</h3>
         <div class="price">R$ 540</div>
       </div>
     </div>
     <div class="model reveal" style="transition-delay:.18s">
-      <div class="m-photo"><img src="https://images.pexels.com/photos/4471279/pexels-photo-4471279.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Chapéu artesanal em exposição"></div>
+      <div class="m-photo"><img src="https://images.pexels.com/photos/4471279/pexels-photo-4471279.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Chapéu artesanal em exposição" width="400" height="400" loading="lazy"></div>
       <div class="m-info">
         <h3>Sob Medida</h3>
         <div class="price">Consulta</div>
@@ -196,7 +246,7 @@
   </div>
 </section>
 
-<div class="process">
+<div class="process" id="processo">
   <div class="wrap" style="padding:80px 0;">
     <div class="section-head reveal" style="margin-bottom:56px;">
       <div class="eyebrow" style="color:var(--tan);">Como moldamos</div>
@@ -218,13 +268,13 @@
         <div class="eyebrow">Visite a chapelaria</div>
         <h2>Aberto de <em>terça a sábado</em></h2>
       </div>
-      <a href="#" class="btn btn-solid">Chamar no WhatsApp</a>
+      <a href="https://wa.me/5521991115544" class="btn btn-solid" target="_blank" rel="noopener">Chamar no WhatsApp</a>
     </div>
     <div>
       <div class="info-row"><span>Endereço</span>Rua dos Chapeleiros, 40 — Centro</div>
       <div class="info-row"><span>Horário</span>Terça a sábado, 10h às 18h</div>
-      <div class="info-row"><span>Telefone</span>(21) 99111-5544</div>
-      <div class="info-row"><span>E-mail</span>contato@abaefita.com.br</div>
+      <div class="info-row"><span>Telefone</span><a href="tel:+5521991115544">(21) 99111-5544</a></div>
+      <div class="info-row"><span>E-mail</span><a href="mailto:contato@abaefita.com.br">contato@abaefita.com.br</a></div>
     </div>
   </div>
 </section>
@@ -239,9 +289,15 @@
 <script>
   const menuToggle = document.getElementById('menuToggle');
   const navLinks = document.getElementById('navLinks');
-  menuToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  menuToggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded', String(isOpen));
+  });
   navLinks.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => navLinks.classList.remove('open'));
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    });
   });
 
   const revealTargets = document.querySelectorAll('.reveal');
